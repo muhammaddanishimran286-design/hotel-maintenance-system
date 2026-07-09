@@ -30,7 +30,7 @@
         </div>
     </div>
     <div class="col-md-3">
-        <div class="stats-card progress">
+        <div class="stats-card in-progress">
             <div class="icon">
                 <i class="fas fa-spinner fa-spin"></i>
             </div>

@@ -28,6 +28,11 @@ class MaintenanceController extends Controller
         return view('maintenance.create');
     }
 
+    public function guestCreate()
+    {
+        return view('guest.report');
+    }
+
     public function store(Request $request)
     {
         $validated = $request->validate([
@@ -53,7 +58,7 @@ class MaintenanceController extends Controller
             'image' => $imagePath,
         ]);
 
-        $admins = User::whereIn('role', ['admin', 'manager'])->get();
+        $admins = User::whereIn('role', ['admin', 'manager', 'receptionist'])->get();
         foreach ($admins as $admin) {
             Notification::create([
                 'user_id' => $admin->id,
@@ -65,6 +70,45 @@ class MaintenanceController extends Controller
 
         return redirect()->route('maintenance.index')
             ->with('success', 'Maintenance request submitted successfully!');
+    }
+
+    public function guestStore(Request $request)
+    {
+        $validated = $request->validate([
+            'title' => 'required|string|max:255',
+            'description' => 'required|string',
+            'location' => 'required|string|max:255',
+            'urgency' => 'required|in:low,medium,high,critical',
+            'image' => 'nullable|image|mimes:jpeg,png,jpg|max:2048',
+        ]);
+
+        $imagePath = null;
+        if ($request->hasFile('image')) {
+            $imagePath = $request->file('image')->store('maintenance', 'public');
+        }
+
+        $maintenanceRequest = MaintenanceRequest::create([
+            'user_id' => null,
+            'title' => $validated['title'],
+            'description' => $validated['description'],
+            'location' => $validated['location'],
+            'urgency' => $validated['urgency'],
+            'status' => 'pending',
+            'image' => $imagePath,
+        ]);
+
+        $recipients = User::whereIn('role', ['admin', 'manager', 'receptionist'])->get();
+        foreach ($recipients as $recipient) {
+            Notification::create([
+                'user_id' => $recipient->id,
+                'request_id' => $maintenanceRequest->id,
+                'message' => "New guest maintenance request: {$maintenanceRequest->title} from {$maintenanceRequest->location}",
+                'is_read' => false,
+            ]);
+        }
+
+        return redirect()->route('guest.report.create')
+            ->with('success', 'Your maintenance report has been submitted successfully.');
     }
 
     public function show($id)

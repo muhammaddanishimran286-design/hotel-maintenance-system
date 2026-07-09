@@ -71,7 +71,7 @@ table(['Item','Requirement'],[
 
 heading('C.2 System Implementation Requirements',2)
 table(['Rubric Area','Required Demonstration','HMMS Evidence'],[
-    ['1(a) Requirement Fulfilment and Scope','Show that approved user and technical requirements are implemented.','Sections 2 and 6; Appendix B; TC-001 to TC-018'],
+    ['1(a) Requirement Fulfilment and Scope','Show that approved user and technical requirements are implemented.','Sections 2 and 6; Appendix B; TC-001 to TC-021'],
     ['1(b) Construction and Core Functionality','Execute major functions accurately and consistently without critical errors.','Sections 3 and 5; Figures A1-A5; full test cases'],
     ['1(c) Integration and Navigation','Show seamless workflows and module interaction.','Request, assignment, task and notification traceability in Section 6'],
     ['1(d) User Interface and Usability','Demonstrate a clear, consistent and usable interface.','Appendix A system screenshots'],
@@ -82,7 +82,7 @@ heading('C.3 System Testing Requirements',2)
 table(['Rubric Area','Required Demonstration','HMMS Evidence'],[
     ['2(a) Testing and Validation','Explain systematic testing and prove validation against requirements.','Sections 3, 5 and 6'],
     ['2(b) Error Detection and Troubleshooting','Identify, analyse, resolve and verify system errors.','Sections 7 and 8; controlled relationship bug demonstration'],
-    ['2(c) Test Case Documentation','Document detailed tests covering major functions and outcomes.','Appendix D contains all 18 detailed test cases'],
+    ['2(c) Test Case Documentation','Document detailed tests covering major functions and outcomes.','Appendix D contains all 21 detailed test cases'],
     ['2(d) Test Report','Provide summary, environment, defect summary, conclusion and suitable charts.','Sections 1, 4, 5, 7 and 9']
 ],[1.5,2.6,2.3],8)
 
@@ -91,7 +91,7 @@ for text in [
     'Working and functional Hotel Maintenance Management System.',
     'Appropriate digital technologies: Laravel, PHP, Blade, MySQL and PHPUnit.',
     'Practical development evidence through integrated request and task workflows.',
-    'System testing evidence through 18 documented functional cases and an automated regression suite.',
+    'System testing evidence through 21 documented functional cases and an automated regression suite.',
     'Supporting technical documentation consolidated into this report.',
     'Error detection and troubleshooting video supported by the prepared controlled bug scenario.'
 ]: bullet(text)

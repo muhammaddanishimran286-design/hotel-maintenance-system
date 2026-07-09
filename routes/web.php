@@ -12,6 +12,12 @@ Route::get('/', function () {
     return redirect()->route('login');
 });
 
+// Guest maintenance report - no login required
+Route::get('/guest/report', [MaintenanceController::class, 'guestCreate'])
+    ->name('guest.report.create');
+Route::post('/guest/report', [MaintenanceController::class, 'guestStore'])
+    ->name('guest.report.store');
+
 // Dashboard - requires login
 Route::get('/dashboard', [DashboardController::class, 'index'])
     ->middleware(['auth', 'verified'])

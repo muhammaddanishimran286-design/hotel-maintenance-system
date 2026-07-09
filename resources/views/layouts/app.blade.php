@@ -246,12 +246,12 @@
 
         .stats-card.total .icon { color: #667eea; }
         .stats-card.pending .icon { color: #f39c12; }
-        .stats-card.progress .icon { color: #3498db; }
+        .stats-card.in-progress .icon { color: #3498db; }
         .stats-card.completed .icon { color: #2ecc71; }
 
         .stats-card.total .number { color: #667eea; }
         .stats-card.pending .number { color: #f39c12; }
-        .stats-card.progress .number { color: #3498db; }
+        .stats-card.in-progress .number { color: #3498db; }
         .stats-card.completed .number { color: #2ecc71; }
 
         /* ===== BADGES ===== */

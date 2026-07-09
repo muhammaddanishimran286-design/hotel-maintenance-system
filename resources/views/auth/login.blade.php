@@ -44,4 +44,12 @@
             </x-primary-button>
         </div>
     </form>
+
+    <div class="mt-6 text-center">
+        <p class="text-sm text-gray-600 mb-3">Do not have an account?</p>
+        <a href="{{ route('guest.report.create') }}"
+           style="display: inline-block; background: #ec4899; color: #ffffff; padding: 10px 18px; border-radius: 8px; font-weight: 700; font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase; text-decoration: none;">
+            Continue as Guest
+        </a>
+    </div>
 </x-guest-layout>
